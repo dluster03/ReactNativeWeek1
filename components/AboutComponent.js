@@ -1,4 +1,6 @@
 import { Component } from "react";
+import { Text, View } from 'react-native';
+import { Card } from 'react-native-elements';
 
 class About extends Component {
 
@@ -10,8 +12,10 @@ class About extends Component {
     render() {
         return (
             <ScrollView>
-                
+
             </ScrollView>
+        );
+    }
 }
 
 
