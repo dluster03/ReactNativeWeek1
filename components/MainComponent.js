@@ -7,7 +7,7 @@ import { createStackNavigator } from 'react-navigation-stack';
 import { createDrawerNavigator } from 'react-navigation-drawer';
 import { createAppContainer } from 'react-navigation';
 import Contact from './ContactComponent';
-import About from '/AboutComponent';
+import About from './AboutComponent';
 
 const DirectoryNavigator = createStackNavigator(
     {
