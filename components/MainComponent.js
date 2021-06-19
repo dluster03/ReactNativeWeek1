@@ -14,8 +14,6 @@ const DirectoryNavigator = createStackNavigator(
     {
         Directory: { screen: Directory },
         CampsiteInfo: { screen: CampsiteInfo },
-        About: { screen: About },
-        Contact: { screen: Contact }
     },
     {
         initialRouteName: 'Directory',
@@ -50,7 +48,7 @@ const HomeNavigator = createStackNavigator(
 
 const AboutUsNavigator = createStackNavigator(
     {
-        Home: { screen: About }
+        About: { screen: About }
     },
     {
         defaultNavigationOptions: {
@@ -67,7 +65,7 @@ const AboutUsNavigator = createStackNavigator(
 
 const ContactUsNavigator = createStackNavigator(
     {
-        Home: { screen: Contact }
+        Contact: { screen: Contact }
     },
     {
         defaultNavigationOptions: {
