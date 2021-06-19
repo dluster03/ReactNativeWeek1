@@ -48,12 +48,46 @@ const HomeNavigator = createStackNavigator(
     }
 );
 
+const AboutUsNavigator = createStackNavigator(
+    {
+        Home: { screen: About }
+    },
+    {
+        defaultNavigationOptions: {
+            headerStyle: {
+                backgroundColor: '#5637DD'
+            },
+            headerTintColor: '#fff',
+            headerTitleStyle: {
+                color: '#fff'
+            }
+        }
+    }
+);
+
+const ContactUsNavigator = createStackNavigator(
+    {
+        Home: { screen: Contact }
+    },
+    {
+        defaultNavigationOptions: {
+            headerStyle: {
+                backgroundColor: '#5637DD'
+            },
+            headerTintColor: '#fff',
+            headerTitleStyle: {
+                color: '#fff'
+            }
+        }
+    }
+);
+
 const MainNavigator = createDrawerNavigator(
     {
         Home: { screen: HomeNavigator },
         Directory: { screen: DirectoryNavigator },
-        // About: { screen: AboutUsNavigator },
-        // Contact: { screen: ContactUsNavigator }
+        About: { screen: AboutUsNavigator },
+        Contact: { screen: ContactUsNavigator }
     },
     {
         drawerBackgroundColor: '#CEC8FF'
