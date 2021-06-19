@@ -14,6 +14,7 @@ class About extends Component {
     }
 
     render() {
+        const { navigate } = this.props.navigation;
         return (
             <ScrollView>
 

@@ -14,6 +14,7 @@ class Contact extends Component {
     }
 
     render() {
+        const { navigate } = this.props.navigation;
         return (
             <ScrollView>
                 <Card
