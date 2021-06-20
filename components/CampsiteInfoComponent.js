@@ -24,11 +24,11 @@ function RenderComments({comments}) {
 
     const RenderCommentItem = ({item}) => {
         return (
-            <view style={{margin: 10}}>
+            <View style={{margin: 10}}>
                 <Text style={{fontSize: 14}}>{item.text}</Text>
                 <Text style={{fontSize: 12}}>{item.rating} Stars</Text>
                 <Text style={{fontSize: 12}}>{`-- ${item.auther}, ${item.date}`}</Text>
-            </view>
+            </View>
         );
     }
 
