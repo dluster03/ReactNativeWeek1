@@ -2,11 +2,18 @@ import React, { Component } from 'react';
 import { FlatList } from 'react-native';
 import { ListItem, Card } from 'react-native-elements';
 import { Text, ScrollView } from 'react-native';
-import { PARTNERS } from '../shared/partners';
+import { connect } from 'react-redux';
+import { baseUrl } from '../shared/baseUrl';
 
-const Mission = () => {
+const mapStateToProps = state => {
+    return {
+        partners: state.partners
+    };
+};
+
+function Mission() {
     return (
-        <Card wrapperStyle={{margin: 20}}  title={"Our Mission"}>
+        <Card title='Our Mission'>
             <Text style={{margin: 10}}>
                 We present a curated database of the best campsites in the vast woods and backcountry of the World Wide Web Wilderness. 
                 We increase access to adventure for the public while promoting safe and respectful use of resources. 
@@ -18,13 +25,7 @@ const Mission = () => {
 }
 
 class About extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            partners: PARTNERS
-        };
-    }
-
+  
     static navigationOptions = {
         title: 'About Us'
     }
@@ -36,7 +37,7 @@ class About extends Component {
                     title={item.name}
                     subtitle={item.description}
                     onPress={() => navigate('../shared/partners', { partnersId: item.id })}
-                    leftAvatar={{ source: require('./images/bootstrap-logo.png')}}
+                    leftAvatar={{ source: {uri: baseUrl + item.image}}}
                 />
             );
         };
@@ -45,9 +46,9 @@ class About extends Component {
         return (
             <ScrollView>
                 <Mission />
-                <Card wrapperStyle={{margin: 20}} title={"Community Partners"}>
+                <Card title="Community Partners">
                     <FlatList
-                        data={this.state.partners}
+                        data={this.props.partners.partners}
                         renderItem={renderPartners}
                         keyExtractor={item => item.id.toString()}
                     />
@@ -57,4 +58,4 @@ class About extends Component {
     }
 }
 
-export default About;
+export default connect(mapStateToProps)(About);
