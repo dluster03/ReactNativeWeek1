@@ -3,6 +3,7 @@ import { FlatList, Text, ScrollView  } from 'react-native';
 import { ListItem, Card } from 'react-native-elements';
 import { connect } from 'react-redux';
 import { baseUrl } from '../shared/baseUrl';
+import Loading from './LoadingComponent';
 
 const mapStateToProps = state => {
     return {
@@ -30,30 +31,38 @@ class About extends Component {
     }
 
     render() {
-        const renderPartners = ({item}) => {
+        const renderPartner = ({item}) => {
             return (
                 <ListItem
                     title={item.name}
                     subtitle={item.description}
-                    onPress={() => navigate('../shared/partners', { partnersId: item.id })}
-                    leftAvatar={{ source: {uri: baseUrl + item.image}}}
+                    leftAvatar={{source: {uri: baseUrl + item.image}}}
                 />
             );
         };
 
-
-        return (
-            <ScrollView>
-                <Mission />
-                <Card title="Community Partners">
-                    <FlatList
-                        data={this.props.partners.partners}
-                        renderItem={renderPartners}
-                        keyExtractor={item => item.id.toString()}
-                    />
-                </Card>
-            </ScrollView>
-        );
+        if (this.props.partners.isLoading) {
+            return (
+                <ScrollView>
+                    <Mission />
+                    <Card
+                        title='Community Partners'>
+                        <Loading />
+                    </Card>
+                </ScrollView>
+            );
+        }
+        if (this.props.partners.errMess) {
+            return (
+                <ScrollView>
+                    <Mission />
+                    <Card
+                        title='Community Partners'>
+                        <Text>{this.props.partners.errMess}</Text>
+                    </Card>
+                </ScrollView>
+            );
+        }
     }
 }
 
