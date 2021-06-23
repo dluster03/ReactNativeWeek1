@@ -62,7 +62,19 @@ class About extends Component {
                     </Card>
                 </ScrollView>
             );
-        }
+        }        
+        return (
+            <ScrollView>
+                <Mission />
+                <Card title="Community Partners">
+                    <FlatList
+                        data={this.props.partners.partners}
+                        renderItem={renderPartners}
+                        keyExtractor={item => item.id.toString()}
+                    />
+                </Card>
+            </ScrollView>
+        );
     }
 }
 
