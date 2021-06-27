@@ -152,12 +152,6 @@ export const addFavorite = campsiteId => ({
     payload: campsiteId
 });
 
-const newComment = {
-    campsiteId,
-    rating,
-    author,
-    text
-};
 
 new Date(year, monthIndex, day)
 
@@ -165,6 +159,13 @@ export const postComment = campsiteId => dispatch => {
     setTimeout(() => {
         dispatch(newComment(campsiteId, rating, author, text, Date));
     }, 2000)
+
+    const newComment = {
+        campsiteId,
+        rating,
+        author,
+        text
+    };
 };
 
 export const addComment = campsiteId => ({
